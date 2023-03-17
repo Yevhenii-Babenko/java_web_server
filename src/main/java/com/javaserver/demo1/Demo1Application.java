@@ -2,15 +2,21 @@ package com.javaserver.demo1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.*;
+//import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import com.javaserver.demo1.repository.UserRepository;
+
 
 import java.sql.Connection;
 
+//@EnableJpaRepositories(basePackages="com.javaserver.demo1.repository.UserRepository")
+@EnableAutoConfiguration
 @SpringBootApplication
 public class Demo1Application {
     public static void main(String[] args) {
         SpringApplication.run(Demo1Application.class, args);
-        DbFunction db = new DbFunction();
-        Connection conn = db.connect_to_db("postgres", "postgres", "root");
+//        DbFunction db = new DbFunction();
+//        Connection conn = db.connect_to_db("postgres", "postgres", "root");
 //		db.createTable(conn,"employee");
 //		db.insert_row(conn, "employee", "rajat", "india");
 //		db.update_name(conn,"employee","rahul", "rahul1");
