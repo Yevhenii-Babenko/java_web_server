@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.*;
 //import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import com.javaserver.demo1.repository.UserRepository;
+import org.springframework.context.annotation.ComponentScan;
 
 
 import java.sql.Connection;
@@ -12,6 +13,7 @@ import java.sql.Connection;
 //@EnableJpaRepositories(basePackages="com.javaserver.demo1.repository.UserRepository")
 @EnableAutoConfiguration
 @SpringBootApplication
+@ComponentScan(basePackages = "com.javaserver.demo1")
 public class Demo1Application {
     public static void main(String[] args) {
         SpringApplication.run(Demo1Application.class, args);
