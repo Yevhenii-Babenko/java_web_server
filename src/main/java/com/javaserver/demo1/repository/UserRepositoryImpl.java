@@ -1,15 +1,17 @@
 package com.javaserver.demo1.repository;
 
 import com.javaserver.demo1.model.User;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
+import java.util.List;
 import java.util.Optional;
 
-@Repository
-public class UserRepositoryImpl implements UserRepository{
+public class UserRepositoryImpl implements UserRepository {
     @Override
     public <S extends User> S save(S entity) {
-        return entity;
+        return null;
     }
 
     @Override
@@ -28,7 +30,7 @@ public class UserRepositoryImpl implements UserRepository{
     }
 
     @Override
-    public Iterable<User> findAll() {
+    public List<User> findAll() {
         return null;
     }
 
