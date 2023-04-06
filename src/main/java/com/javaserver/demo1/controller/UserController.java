@@ -3,6 +3,7 @@ package com.javaserver.demo1.controller;
 import com.javaserver.demo1.exception.ResourceNotFoundException;
 import com.javaserver.demo1.model.User;
 import com.javaserver.demo1.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,11 +44,11 @@ import java.util.Map;
 //@Configuration
 @RestController
 @RequestMapping("/api/v1")
+@RequiredArgsConstructor
 //@EnableJpaRepositories("com.javaserver.demo1.repository.UserRepository")
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     // get users
     @GetMapping("users")
