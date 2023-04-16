@@ -4,47 +4,19 @@ import com.javaserver.demo1.exception.ResourceNotFoundException;
 import com.javaserver.demo1.model.User;
 import com.javaserver.demo1.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//@RestController
-//@RequestMapping("/api/v1")
-//public class UserController {
-//    @GetMapping("user")
-//    public User getUser() {
-//        return new User(1, "John","Doe", "jdoe@test.com" );
-//    }
-//
-//    @GetMapping("users")
-//    public List<User> getUsersList() {
-//        List<User> users = new ArrayList<User>();
-//        users.add(new User(1, "John","Doe", "jdoe@test.com" ));
-//        users.add(new User(2, "Tom", "Cat", "tcat@test.com"));
-//        users.add(new User(3, "Tim", "Ray", "tray@test.com"));
-//        users.add(new User(4, "Jack", "Black", "jblack@test.com"));
-//        return users;
-//    }
-//
-//    // Request query parameters
-//    @GetMapping("user/query")
-//    public User userQueryRequest(@RequestParam(name= "id") int id, @RequestParam(name = "firstName") String firstName, @RequestParam(name = "lastName") String lastName, @RequestParam(name = "email") String email) {
-//        return new User(id, firstName, lastName, email);
-//    }
-//}
 
-//@EnableJpaRepositories(basePackages="com.javaserver.demo1.repository.UserRepository")
-//@Configuration
 @RestController
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
+
 //@EnableJpaRepositories("com.javaserver.demo1.repository.UserRepository")
 public class UserController {
 
@@ -52,7 +24,7 @@ public class UserController {
 
     // get users
     @GetMapping("users")
-    public Iterable<User> getAllUsers() {
+    public List<User> getAllUsers() {
         return this.userRepository.findAll();
     }
 
