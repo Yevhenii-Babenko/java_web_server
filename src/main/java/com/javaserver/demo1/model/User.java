@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "public")
 public class User {
     @Id  //mark Id like a primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
