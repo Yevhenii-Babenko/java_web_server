@@ -1,15 +1,13 @@
 package com.javaserver.demo1.model;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
+import java.util.List;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "user", schema = "public")
+@NoArgsConstructor
 public class User {
-    @Id  //mark Id like a primary key
+    @Id //mark Id like a primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "first_name")
@@ -18,6 +16,9 @@ public class User {
     private String lastName;
     @Column(name = "email")
     private String email;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Product> products;
 
     public User(String firstName, String lastName, String email) {
         super();

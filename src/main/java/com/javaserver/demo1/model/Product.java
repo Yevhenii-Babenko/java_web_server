@@ -2,10 +2,11 @@ package com.javaserver.demo1.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
+import javax.persistence.ManyToOne;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "products", schema = "public")
@@ -17,6 +18,10 @@ public class Product {
     private String name;
     private String description;
     private int price;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Product(Long id, String name, String description, int price) {
         this.id = id;
