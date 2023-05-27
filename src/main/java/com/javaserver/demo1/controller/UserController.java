@@ -16,8 +16,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
-
-//@EnableJpaRepositories("com.javaserver.demo1.repository.UserRepository")
 public class UserController {
 
     private final UserRepository userRepository;
